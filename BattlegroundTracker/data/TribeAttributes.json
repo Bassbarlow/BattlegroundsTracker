@@ -1,0 +1,11 @@
+{"TribeAttributes":[
+    {"TribeNr":20,"TribeName":"Beast","Red":113,"Green":72,"Blue":0},
+    {"TribeNr":15,"TribeName":"Demon","Red":82,"Green":0,"Blue":113},
+    {"TribeNr":24,"TribeName":"Dragon","Red":0,"Green":0,"Blue":101},
+    {"TribeNr":18,"TribeName":"Elemental","Red":255,"Green":100,"Blue":0},
+    {"TribeNr":17,"TribeName":"Mech","Red":0,"Green":139,"Blue":137},
+    {"TribeNr":14,"TribeName":"Murloc","Red":4,"Green":133,"Blue":25},
+    {"TribeNr":23,"TribeName":"Pirate","Red":89,"Green":0, "Blue":0},
+    {"TribeNr":43,"TribeName":"Quilboar","Red":122,"Green":122,"Blue":122}
+]
+}
