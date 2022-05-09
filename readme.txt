@@ -1,3 +1,5 @@
+Данный плагин является форком BoonwinsBattlegroundsTracker, но так-как многое "пошло под нож", данный проект был вынесен в отдельный
+
 Инструкция добавления плагина:
 1)Перейти в C:\Users\(Введите имя своего пользователя)\AppData\Roaming\HearthstoneDeckTracker\Plugins
 2)Скопировать папку BattlegroundsTracker из архива в папку plugins
