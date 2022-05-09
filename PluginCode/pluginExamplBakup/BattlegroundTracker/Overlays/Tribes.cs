@@ -32,6 +32,7 @@ namespace BattlegroundTracker
             races.Add(Race.MURLOC, "Murlocs");
             races.Add(Race.PIRATE, "Pirates");
             races.Add(Race.QUILBOAR, "Quilboars");
+            races.Add(Race.NAGA, "Nagas");
             Dictionary<Race, string> imgways = new Dictionary<Race, string>();
             imgways.Add(Race.BEAST, "beast.png");
             imgways.Add(Race.DEMON, "demon.png");
@@ -41,6 +42,7 @@ namespace BattlegroundTracker
             imgways.Add(Race.MURLOC, "murloc.png");
             imgways.Add(Race.PIRATE, "pirate.png");
             imgways.Add(Race.QUILBOAR, "quilboar.png");
+            imgways.Add(Race.NAGA, "nagas.png");
             var gameTribes = BattlegroundsUtils.GetAvailableRaces(gameID);
 
             List<Race>bans =new ();
@@ -62,6 +64,8 @@ namespace BattlegroundTracker
                     bans.Add(Race.PIRATE);
                 if (!gameTribes.Contains(Race.QUILBOAR))
                     bans.Add(Race.QUILBOAR);
+                //if (!gameTribes.Contains(Race.NAGA))     //ждем когда начнут банить наг
+                //    bans.Add(Race.NAGA);
             }
 
             _view.SetisBanned("N/A", "", "");
@@ -74,11 +78,6 @@ namespace BattlegroundTracker
 
             if (gameTribes?.Count > 0)
             {
-                //string strBans = races[bans[0]] + ',' + races[bans[1]] + ',' + races[bans[2]];
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                              @"\HearthstoneDeckTracker\Plugins\BattlegroundTracker\Img\";
-
-
                 _view.SetisBanned(races[bans[0]], races[bans[1]], races[bans[2]]);
                 if (_config.showTribeImages == true)
                 {
@@ -102,6 +101,10 @@ namespace BattlegroundTracker
                     {
                         _tribes.imgTribe3.Source = new BitmapImage(new Uri(Config._tribesImageLocation + imgways[bans[2]]));
                     }
+                    //if (File.Exists(Config._tribesImageLocation + imgways[bans[2]]))
+                    //{
+                    //    _tribes.imgTribe3.Source = new BitmapImage(new Uri(Config._tribesImageLocation + imgways[bans[3]]));  //если начнут банить по 4 архетипа
+                    //}
                     else
                     {
                         _tribes.imgTribe3.Source = new BitmapImage(new Uri(Config._tribesImageLocation + @"na.png"));
