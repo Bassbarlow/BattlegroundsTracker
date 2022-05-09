@@ -451,6 +451,40 @@ namespace BattlegroundTracker
                     }
                 }
             }
+            else
+            {
+                if (InGameplayMode())
+                {
+                    if (InBgMode())
+                    {
+                        if (!_config.ingameOverlayEnabled)
+                        {
+                            if (Core.OverlayCanvas.Children.Contains(_tavernUp))
+                            {
+                                Core.OverlayCanvas.Children.Remove(_tavernUp);
+                                Core.OverlayCanvas.Children.Remove(_rerollArea);
+                            }
+                        }
+                        else
+                        {
+                            if (!Core.OverlayCanvas.Children.Contains(_tavernUp))
+                            {
+                                Core.OverlayCanvas.Children.Add(_tavernUp);
+                                Core.OverlayCanvas.Children.Add(_rerollArea);
+                            }
+                        }
+                    }
+                }
+                if (InGameHub())
+                {
+                    if (Core.OverlayCanvas.Children.Contains(_tavernUp))
+                    {
+                        Core.OverlayCanvas.Children.Remove(_tavernUp);
+                        Core.OverlayCanvas.Children.Remove(_rerollArea);
+                    }
+                }
+
+            }
         }
         internal static void AddOrRemoveOverlay()
         {

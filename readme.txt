@@ -3,16 +3,16 @@
 2)Скопировать папку BattlegroundsTracker из архива в папку plugins
 
 Инструкция по настройке звуковых эффектов:
-1)В HearthstoneDeckTracker (далее HDT) открыть настройки, перейти во вкладку "plugins"
-2)Включить плагин Battlegrounds Tracker, открыть описание и перейти в настрокий
-3)Во вкладке Sounds включить параметр CustomSounds
-4)Разблокировать кнопки (Unlock) и переместить их на внутриигровые кнопки hearthstone
+1)Запустить Hearthstone
+2)Проверку звуков можно осуществить в меню полей сражений (где отображается рейтинг и статистика), либо 
+непосредственно во время боя
+3)В HearthstoneDeckTracker (далее HDT) открыть настройки, перейти во вкладку "plugins"
+4)Включить плагин Battlegrounds Tracker, открыть описание и перейти в настроки
+5)Во вкладке Sounds включить параметр CustomSounds
+6)Разблокировать кнопки (Unlock) и переместить их на внутриигровые кнопки hearthstone
 при нажатии на красный квадрат будет воспроизводиться медиафайл reroll.wav, а при нажатии на зеленый- tavernup.wav
-5)В папку C:\Users\(Введите имя своего пользователя)\AppData\Roaming\HearthstoneDeckTracker\Plugins\BattlegroundTracker\Sounds
+7)В папку C:\Users\(Введите имя своего пользователя)\AppData\Roaming\HearthstoneDeckTracker\Plugins\BattlegroundTracker\Sounds
 можно добавить пользовательский tavernup.wav и reroll.wav
 
-<<<<<<< HEAD
+
 P.S. Также присутствует исходный код плагина (PluginCode)
-=======
-P.S. Также присутствует исходный код плагина (PluginCode).
->>>>>>> 17ed4a477f02a0703817a9aa42d4ab1acfeb1e43
