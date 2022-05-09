@@ -11,4 +11,8 @@
 5)В папку C:\Users\(Введите имя своего пользователя)\AppData\Roaming\HearthstoneDeckTracker\Plugins\BattlegroundTracker\Sounds
 можно добавить пользовательский tavernup.wav и reroll.wav
 
+<<<<<<< HEAD
 P.S. Также присутствует исходный код плагина (PluginCode)
+=======
+P.S. Также присутствует исходный код плагина (PluginCode).
+>>>>>>> 17ed4a477f02a0703817a9aa42d4ab1acfeb1e43
