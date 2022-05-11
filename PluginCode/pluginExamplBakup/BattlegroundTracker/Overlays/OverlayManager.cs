@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Collections.Generic;
+using System.Windows.Media;
 using Hearthstone_Deck_Tracker;
 using Core = Hearthstone_Deck_Tracker.API.Core;
 
@@ -65,11 +66,8 @@ namespace BattlegroundTracker
                 {
                     _selected = "overlay";
                 }
-
-        
-
-            _config.save();
-        }
+                _config.save();
+            }
 
             private void MouseInputOnLmbUp(object sender, EventArgs eventArgs)
             {
@@ -80,12 +78,9 @@ namespace BattlegroundTracker
                     _config.posTop = overlayPos0.Y + (pos.Y - mousePos0.Y);
                     _config.posLeft = overlayPos0.X + (pos.X - mousePos0.X);
                 }
-               
-          
-
                 _selected = null;
                 _config.save();
-        }
+            }
 
             private void MouseInputOnMouseMoved(object sender, EventArgs eventArgs)
             {
@@ -102,8 +97,7 @@ namespace BattlegroundTracker
                     Canvas.SetLeft(_overlay, overlayPos0.X + (pos.X - mousePos0.X));
                 }
 
-        }
-
+            }
             private bool PointInsideControl(Point p, FrameworkElement control)
             {
             try

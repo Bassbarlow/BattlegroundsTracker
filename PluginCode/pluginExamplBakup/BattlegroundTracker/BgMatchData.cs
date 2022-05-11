@@ -730,14 +730,17 @@ namespace BattlegroundTracker
         {
             if (_config.showTribeImages && _config.tribeSize != _tribeImgSize)
             {
-                _tribes.SetTribeImageSize(_config.tribeSize);
+                _tribes.SetTribeSize(_config);
                 _tribeImgSize = _config.tribeSize;
             }
         }
 
         internal static void SetLatestRating()
         {
-            _ratingStart = Core.Game.BattlegroundsRatingInfo.Rating;
+            if(Core.Game.BattlegroundsRatingInfo.Rating==0 || Core.Game.BattlegroundsRatingInfo.Rating==null) 
+                _ratingStart=0;
+            else
+                _ratingStart = Core.Game.BattlegroundsRatingInfo.Rating;
             _overlay.UpdateMMR(_ratingStart);
 
             UpdateLeaderboardData();

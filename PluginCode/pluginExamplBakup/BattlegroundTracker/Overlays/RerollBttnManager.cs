@@ -45,7 +45,7 @@ namespace BattlegroundTracker.Overlays
                 _mouseSounder.LmbDown += MouseInputOnLmbDownSound;
                 return true;
             }
-            Dispose();
+            
             return false;
         }
         public bool Toggle()

@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BattlegroundTracker"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="600" VerticalAlignment="Center" HorizontalAlignment="Center">
-    <Grid x:Name="panel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="600" Height="600" >
-        <Image x:Name="imgTribe1" Stretch="Fill" Width="150" Height="150" Margin="-150,-150,0,0"></Image>
-        <Image x:Name="imgTribe2" Stretch="Fill" Width="150" Height="150" Margin="0,0,-150,0"></Image>
-        <Image x:Name="imgTribe3" Stretch="Fill" Width="150" Height="150" Margin="-150,150,0,0"></Image>
+             d:DesignHeight="1050" d:DesignWidth="350" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid x:Name="panel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Width="350" Height="1050">
+        <Image x:Name="imgTribe1" Stretch="Fill" Width="350" Height="350" Margin="0,-700,0,0"></Image>
+        <Image x:Name="imgTribe2" Stretch="Fill" Width="350" Height="350" Margin="0,-300,0,0"></Image>
+        <Image x:Name="imgTribe3" Stretch="Fill" Width="350" Height="350" Margin="0,300,0,0"></Image>
+        <Image x:Name="imgTribe4" Stretch="Fill" Width="350" Height="350" Margin="0,700,0,0"></Image>
     </Grid>
 </UserControl>

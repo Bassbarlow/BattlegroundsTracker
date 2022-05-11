@@ -71,15 +71,28 @@ namespace BattlegroundTracker
             if (_config.showTribeImages == true)
             {
                 cbEnableBannedTribeImages.IsChecked = true;
+                ImageSizeSlider.Value = _config.tribeSize;
+                SizeBox.Text = _config.tribeSize.ToString();
+                ImageSizeSlider.IsEnabled = true;
+                SizeBox.IsEnabled = true;
             }
-            else { cbEnableBannedTribeImages.IsChecked = false; }
+            else
+            {
+                cbEnableBannedTribeImages.IsChecked = false;
+                ImageSizeSlider.IsEnabled = false;
+                SizeBox.IsEnabled = false;
+            }
             if (_config.ingameOverlayEnabled == true)
             {
                 cbIsInGameEnabled.IsChecked = true;
-                cbBannedTribeImagesSizes.IsEnabled = true;
+                //cbBannedTribeImagesSizes.IsEnabled = true;
+                ImageSizeSlider.IsEnabled = true;
+                SizeBox.IsEnabled = true;
             }
             else { cbIsInGameEnabled.IsChecked = false;
-                cbBannedTribeImagesSizes.IsEnabled = false;
+                //cbBannedTribeImagesSizes.IsEnabled = false;
+                ImageSizeSlider.IsEnabled = false;
+                SizeBox.IsEnabled = false;
             }
 
             //if (_config.isSoundChecked == true)
@@ -318,22 +331,25 @@ namespace BattlegroundTracker
         private void cbEnableBannedTribeImages_Checked(object sender, RoutedEventArgs e)
         {
             _config.showTribeImages = true;
-            cbBannedTribeImagesSizes.IsEnabled = true;
+            ImageSizeSlider.IsEnabled = true;
+            SizeBox.IsEnabled = true;
+            //cbBannedTribeImagesSizes.IsEnabled = true;
             _config.save();
         }
 
         private void cbEnableBannedTribeImages_Unchecked(object sender, RoutedEventArgs e)
         {
             _config.showTribeImages = false;
-            cbBannedTribeImagesSizes.IsEnabled = false;
+            ImageSizeSlider.IsEnabled = false;
+            SizeBox.IsEnabled = false;
+            //cbBannedTribeImagesSizes.IsEnabled = false;
             _config.save();
         }
 
         private void btntribesUnlock_Click(object sender, RoutedEventArgs e)
         {
-
+            if (_config.showTribeImages)
             btntribesUnlock.Content = BgMatchData._tribeInput.Toggle() ? "Lock Tribes" : "Unlock Tribes";
-
         }
 
         private void cbBannedTribeImagesSizes_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -632,11 +648,47 @@ namespace BattlegroundTracker
         private void BttnUnlockTavernUpLocation_OnClick(object sender, RoutedEventArgs e)
         {
             bttnUnlockTavernUpLocation.Content = BgMatchData._tavernUpBttnInput.Toggle() ? "Lock" : "Unlock";
+            BgMatchData._rerollInput.TriggerSound();
         }
 
         private void BttnUnlockRerollLocation_OnClick(object sender, RoutedEventArgs e)
         {
             bttnUnlockRerollLocation.Content = BgMatchData._rerollInput.Toggle() ? "Lock" : "Unlock";
+            BgMatchData._tavernUpBttnInput.TriggerSound();
+        }
+
+        private void SizeBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            Exception ex = new();
+            try
+            { 
+                if (Convert.ToInt32(SizeBox.Text) < 150 || Convert.ToInt32(SizeBox.Text) > 350) return;
+                //ImageSizeSlider.Value = Convert.ToDouble(SizeBox.Text);
+                _config.tribeSize = Convert.ToInt32(Math.Round(ImageSizeSlider.Value));
+                _config.save();
+                _tribes.SetTribeSize(_config);
+            }
+            catch (NullReferenceException)
+            {
+                //MessageBox.Show("NullRefSizeBox");
+                return;
+            }
+        }
+
+        private void ImageSizeSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            try
+            {
+                //SizeBox.Text = Convert.ToInt32(ImageSizeSlider.Value).ToString();
+                _config.tribeSize = Convert.ToInt32(Math.Round(e.NewValue));
+                _config.save();
+                _tribes.SetTribeSize(_config);
+            }
+            catch (NullReferenceException)
+            {
+                //MessageBox.Show("NullRef");
+                return;
+            }
         }
     }
 }

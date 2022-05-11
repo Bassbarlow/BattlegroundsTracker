@@ -48,14 +48,17 @@ namespace BattlegroundTracker
         {
             lbbannedMinion.Content = "Waiting...";
             lbbannedMinion2.Content = "";
+            lbbannedMinion3.Content = "";
+            lbbannedMinion4.Content = "";
 
         }
 
-        internal void SetisBanned(string type1, string type2,string type3)
+        internal void SetisBanned(string type1, string type2,string type3, string type4)
         {
             lbbannedMinion.Content = type1;
             lbbannedMinion2.Content = type2;
             lbbannedMinion3.Content = type3;
+            lbbannedMinion4.Content = type4;
         }
     }
 

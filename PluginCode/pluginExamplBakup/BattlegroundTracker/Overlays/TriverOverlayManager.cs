@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Collections.Generic;
+using System.Windows.Media;
 using Hearthstone_Deck_Tracker;
 using Core = Hearthstone_Deck_Tracker.API.Core;
 
@@ -33,6 +34,7 @@ namespace BattlegroundTracker
         {
             if (Hearthstone_Deck_Tracker.Core.Game.IsRunning && _mouseInput == null)
             {
+                _tribes.Background= new SolidColorBrush(Color.FromArgb(50, 0, 255, 0));
                 _mouseInput = new User32.MouseInput();
                 _mouseInput.LmbDown += MouseInputOnLmbDown;
                 _mouseInput.LmbUp += MouseInputOnLmbUp;
@@ -45,6 +47,7 @@ namespace BattlegroundTracker
 
         public void Dispose()
         {
+            _tribes.Background = new SolidColorBrush(Colors.Transparent);
             _mouseInput?.Dispose();
             _mouseInput = null;
 
@@ -54,7 +57,7 @@ namespace BattlegroundTracker
         {
             var position = User32.GetMousePos();
             mousePos0 = new Point(position.X, position.Y);
-            overlayPos0 = new Point(_config.posLeft, _config.posTop);
+            overlayPos0 = new Point(_config.tribePosLeft, _config.tribePosTop);
 
             if (PointInsideControl(mousePos0, _tribes))
             {

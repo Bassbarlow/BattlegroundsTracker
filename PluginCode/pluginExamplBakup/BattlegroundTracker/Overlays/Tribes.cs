@@ -64,11 +64,11 @@ namespace BattlegroundTracker
                     bans.Add(Race.PIRATE);
                 if (!gameTribes.Contains(Race.QUILBOAR))
                     bans.Add(Race.QUILBOAR);
-                //if (!gameTribes.Contains(Race.NAGA))     //ждем когда начнут банить наг
-                //    bans.Add(Race.NAGA);
+                if (!gameTribes.Contains(Race.NAGA))     //ждем когда начнут банить наг
+                    bans.Add(Race.NAGA);
             }
 
-            _view.SetisBanned("N/A", "", "");
+            _view.SetisBanned("N/A", "", "","");
             if (_config.showTribeColors == true)
             {
 
@@ -78,7 +78,8 @@ namespace BattlegroundTracker
 
             if (gameTribes?.Count > 0)
             {
-                _view.SetisBanned(races[bans[0]], races[bans[1]], races[bans[2]]);
+                //MessageBox.Show(races[bans[0]] + races[bans[1]] + races[bans[2]] + races[bans[3]]);
+                _view.SetisBanned(races[bans[0]], races[bans[1]], races[bans[2]],races[bans[3]]);
                 if (_config.showTribeImages == true)
                 {
                     if (File.Exists(Config._tribesImageLocation + imgways[bans[0]]))
@@ -101,13 +102,17 @@ namespace BattlegroundTracker
                     {
                         _tribes.imgTribe3.Source = new BitmapImage(new Uri(Config._tribesImageLocation + imgways[bans[2]]));
                     }
-                    //if (File.Exists(Config._tribesImageLocation + imgways[bans[2]]))
-                    //{
-                    //    _tribes.imgTribe3.Source = new BitmapImage(new Uri(Config._tribesImageLocation + imgways[bans[3]]));  //если начнут банить по 4 архетипа
-                    //}
                     else
                     {
-                        _tribes.imgTribe3.Source = new BitmapImage(new Uri(Config._tribesImageLocation + @"na.png"));
+                        _tribes.imgTribe2.Source = new BitmapImage(new Uri(Config._tribesImageLocation + @"na.png"));
+                    }
+                    if (File.Exists(Config._tribesImageLocation + imgways[bans[3]]))
+                    {
+                        _tribes.imgTribe4.Source = new BitmapImage(new Uri(Config._tribesImageLocation + imgways[bans[3]]));  //если начнут банить по 4 архетипа
+                    }
+                    else
+                    {
+                        _tribes.imgTribe4.Source = new BitmapImage(new Uri(Config._tribesImageLocation + @"na.png"));
                     }
                 }
 

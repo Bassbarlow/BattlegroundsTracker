@@ -19,9 +19,10 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <Label  Content="Banned: " HorizontalAlignment="Left" Margin="0,-5,0,-24" VerticalAlignment="Top" FontSize="12" FontFamily="Source Sans Pro" Foreground="White" Height="31" />
-            <Label x:Name="lbbannedMinion" Content="Waiting..." HorizontalAlignment="Left" Margin="0,10,0,-20" VerticalAlignment="Top" FontSize="12" FontFamily="Source Sans Pro" Foreground="White"  Width="120" />
-            <Label x:Name="lbbannedMinion2" Content="" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Source Sans Pro" Foreground="White" Width="120" />
-            <Label x:Name="lbbannedMinion3" Content="" HorizontalAlignment="Left" Margin="0,-10,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Source Sans Pro" Foreground="White" Width="120" RenderTransformOrigin="0.501,0.511" />
+            <Label x:Name="lbbannedMinion" Content="Waiting..." HorizontalAlignment="Left" Margin="0,8,0,-20" VerticalAlignment="Top" FontSize="12" FontFamily="Source Sans Pro" Foreground="White"  Width="120" />
+            <Label x:Name="lbbannedMinion2" Content="" HorizontalAlignment="Left" Margin="0,8,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Source Sans Pro" Foreground="White" Width="120" />
+            <Label x:Name="lbbannedMinion3" Content="" HorizontalAlignment="Left" Margin="0,-12,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Source Sans Pro" Foreground="White" Width="120" RenderTransformOrigin="0.501,0.511" />
+            <Label x:Name="lbbannedMinion4" Content="" HorizontalAlignment="Left" Margin="0,-12,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Source Sans Pro" Foreground="White" Width="120" RenderTransformOrigin="0.501,0.511" />
 
         </StackPanel>
 
