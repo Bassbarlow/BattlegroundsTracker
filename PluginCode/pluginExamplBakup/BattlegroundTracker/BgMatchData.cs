@@ -457,7 +457,7 @@ namespace BattlegroundTracker
                 {
                     if (InBgMode())
                     {
-                        if (!_config.ingameOverlayEnabled)
+                        if (!_config.IsCustomSoundsEnabled)
                         {
                             if (Core.OverlayCanvas.Children.Contains(_tavernUp))
                             {
@@ -471,6 +471,8 @@ namespace BattlegroundTracker
                             {
                                 Core.OverlayCanvas.Children.Add(_tavernUp);
                                 Core.OverlayCanvas.Children.Add(_rerollArea);
+                                _rerollInput.TriggerSound();
+                                _tavernUpBttnInput.TriggerSound();
                             }
                         }
                     }

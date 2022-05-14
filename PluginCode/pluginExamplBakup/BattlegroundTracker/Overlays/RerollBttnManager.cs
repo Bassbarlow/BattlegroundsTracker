@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using BoonwinsBattlegroundTracker.Sounds;
 using Hearthstone_Deck_Tracker;
@@ -52,9 +53,10 @@ namespace BattlegroundTracker.Overlays
         {
             if (Hearthstone_Deck_Tracker.Core.Game.IsRunning && _mouseInput == null)
             {
+                SoundDispose();
                 _reroll.Background = new SolidColorBrush(Color.FromArgb(50, 255, 0, 0));
                 _mouseInput = new User32.MouseInput();
-                _mouseSounder = new User32.MouseInput();
+                //_mouseSounder = new User32.MouseInput();
                 _mouseInput.LmbDown += MouseInputOnLmbDown;
                 _mouseInput.LmbUp += MouseInputOnLmbUp;
                 _mouseInput.MouseMoved += MouseInputOnMouseMoved;
@@ -62,6 +64,7 @@ namespace BattlegroundTracker.Overlays
                 return true;
             }
             Dispose();
+            TriggerSound();
             return false;
         }
 
@@ -73,10 +76,17 @@ namespace BattlegroundTracker.Overlays
 
         }
 
+        public void SoundDispose()
+        {
+            _mouseSounder?.Dispose();
+            _mouseSounder = null;
+        }
+
         private void MouseInputOnLmbDown(object sender, EventArgs eventArgs)
         {
             var position = User32.GetMousePos();
             mousePos0 = new Point(position.X, position.Y);
+            overlayPos0 = new Point(_config.rerollPosLeft, _config.rerollPosTop);
 
             if (PointInsideControl(mousePos0, _reroll))
             {
@@ -104,8 +114,8 @@ namespace BattlegroundTracker.Overlays
 
             if (_selected == "reroll")
             {
-                _config.rerollPosTop = pos.Y;
-                _config.rerollPosLeft = pos.X;
+                _config.rerollPosTop = overlayPos0.Y + (pos.Y - mousePos0.Y);
+                _config.rerollPosLeft = overlayPos0.X + (pos.X - mousePos0.X);
             }
 
             _selected = null;
@@ -124,8 +134,8 @@ namespace BattlegroundTracker.Overlays
 
             if (_selected == "reroll")
             {
-                Canvas.SetTop(_reroll, pos.Y);
-                Canvas.SetLeft(_reroll, pos.X);
+                Canvas.SetTop(_reroll, overlayPos0.Y + (pos.Y - mousePos0.Y));
+                Canvas.SetLeft(_reroll, overlayPos0.X + (pos.X - mousePos0.X));
             }
 
         }

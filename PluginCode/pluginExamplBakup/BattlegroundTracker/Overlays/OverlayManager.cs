@@ -31,7 +31,6 @@ namespace BattlegroundTracker
         public void UpdateConfig(Config c)
         {
 
-
         }
 
 

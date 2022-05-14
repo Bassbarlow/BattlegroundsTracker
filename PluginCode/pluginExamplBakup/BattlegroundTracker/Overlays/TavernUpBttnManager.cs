@@ -51,9 +51,10 @@ namespace BattlegroundTracker.Overlays
         {
             if (Hearthstone_Deck_Tracker.Core.Game.IsRunning && _mouseInput == null)
             {
+                SoundDispose();
                 _tavernUp.Background = new SolidColorBrush(Color.FromArgb(50,0,255,0));
                 _mouseInput = new User32.MouseInput();
-                _mouseSounder = new User32.MouseInput();
+                //_mouseSounder = new User32.MouseInput();
                 _mouseInput.LmbDown += MouseInputOnLmbDown;
                 _mouseInput.LmbUp += MouseInputOnLmbUp;
                 _mouseInput.MouseMoved += MouseInputOnMouseMoved;
@@ -61,6 +62,7 @@ namespace BattlegroundTracker.Overlays
                 return true;
             }
             Dispose();
+            TriggerSound();
             return false;
         }
 
@@ -71,11 +73,17 @@ namespace BattlegroundTracker.Overlays
             _mouseInput = null;
 
         }
+        public void SoundDispose()
+        {
+            _mouseSounder?.Dispose();
+            _mouseSounder = null;
+        }
 
         private void MouseInputOnLmbDown(object sender, EventArgs eventArgs)
         {
             var position = User32.GetMousePos();
             mousePos0 = new Point(position.X, position.Y);
+            overlayPos0 = new Point(_config.tavernUpPosLeft, _config.tavernUpPosTop);
 
             if (PointInsideControl(mousePos0, _tavernUp))
             {
@@ -105,8 +113,8 @@ namespace BattlegroundTracker.Overlays
 
             if (_selected == "tavernup")
             {
-                _config.tavernUpPosTop = pos.Y;
-                _config.tavernUpPosLeft = pos.X;
+                _config.tavernUpPosTop = overlayPos0.Y + (pos.Y - mousePos0.Y);
+                _config.tavernUpPosLeft = overlayPos0.X + (pos.X - mousePos0.X);
             }
 
             _selected = null;
@@ -125,8 +133,8 @@ namespace BattlegroundTracker.Overlays
 
             if (_selected == "tavernup")
             {
-                Canvas.SetTop(_tavernUp, pos.Y);
-                Canvas.SetLeft(_tavernUp, pos.X );
+                Canvas.SetTop(_tavernUp, overlayPos0.Y + (pos.Y - mousePos0.Y));
+                Canvas.SetLeft(_tavernUp, overlayPos0.X + (pos.X - mousePos0.X));
             }
 
         }

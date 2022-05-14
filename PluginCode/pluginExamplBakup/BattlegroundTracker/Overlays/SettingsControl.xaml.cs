@@ -648,13 +648,13 @@ namespace BattlegroundTracker
         private void BttnUnlockTavernUpLocation_OnClick(object sender, RoutedEventArgs e)
         {
             bttnUnlockTavernUpLocation.Content = BgMatchData._tavernUpBttnInput.Toggle() ? "Lock" : "Unlock";
-            BgMatchData._rerollInput.TriggerSound();
+            //BgMatchData._rerollInput.TriggerSound();
         }
 
         private void BttnUnlockRerollLocation_OnClick(object sender, RoutedEventArgs e)
         {
             bttnUnlockRerollLocation.Content = BgMatchData._rerollInput.Toggle() ? "Lock" : "Unlock";
-            BgMatchData._tavernUpBttnInput.TriggerSound();
+            //BgMatchData._tavernUpBttnInput.TriggerSound();
         }
 
         private void SizeBox_OnTextChanged(object sender, TextChangedEventArgs e)

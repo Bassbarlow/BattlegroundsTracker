@@ -12,7 +12,13 @@ using Hearthstone_Deck_Tracker.HsReplay;
 using System.Threading;
 using AutoUpdaterDotNET;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using BattlegroundTracker.Overlays;
+//using Squirrel;
+using MenuItem = System.Windows.Controls.MenuItem;
+using MessageBox = System.Windows.MessageBox;
+using Panel = System.Windows.Controls.Panel;
+
 
 namespace BattlegroundTracker
 {
@@ -41,7 +47,7 @@ namespace BattlegroundTracker
         public void OnLoad()
         {
             // create overlay and insert into HDT overlay
-            //AutoUpdate();
+            AutoUpdate();
             CreateDateFileEnviroment();
             _tavernUp = new TavernUpBttnArea();
             _rerollArea = new TavernUpBttnArea();
@@ -130,19 +136,34 @@ namespace BattlegroundTracker
 
         }
 
-
-        private void AutoUpdate()
+        //private async void UpdatePlugin(UpdateManager manager)
+        //{
+        //    await manager.UpdateApp();
+        //}
+        private async void AutoUpdate()
         {
+        //UpdateManager manager =
+        //    await UpdateManager.GitHubUpdateManager(@"https://github.com/Bassbarlow/BattlegroundsTracker");
+        //var updateinfo = await manager.CheckForUpdate();
+        //    if (updateinfo.ReleasesToApply.Count > 0)
+        //    {
+        //       MessageBoxResult dialog= MessageBox.Show("Доступна новая версия, хотите установить?","Обновление",MessageBoxButton.YesNo);
+        //       if (dialog == MessageBoxResult.Yes)
+        //       {
+        //           UpdatePlugin(manager);
+        //       }
+        //    }
             //AutoUpdater.InstalledVersion = Version;
             //AutoUpdater.AppTitle = "Battlegrounds Tracker";
-            //AutoUpdater.Start("https://boonwin.de/Downloads/version.xml");
+            ////AutoUpdater.Start("https://boonwin.de/Downloads/version.xml");
+            
             //AutoUpdater.DownloadPath = Hearthstone_Deck_Tracker.Config.AppDataPath + @"\Plugins\";
             //var currentDirectory = new DirectoryInfo(Hearthstone_Deck_Tracker.Config.AppDataPath + @"\Plugins\BattlegroundTracker\");
             //if (currentDirectory.Parent != null)
             //{
             //    AutoUpdater.InstallationPath = currentDirectory.Parent.FullName;
             //}
-            
+
         }
         private void CreateDateFileEnviroment()
         {
@@ -220,7 +241,7 @@ namespace BattlegroundTracker
 
         public string Author => "Bassbarlow";
 
-        public Version Version => new Version(0, 0, 1, 5);
+        public System.Version Version => new System.Version(0, 0, 1, 5);
 
         public MenuItem MenuItem => CreateMenu();
 

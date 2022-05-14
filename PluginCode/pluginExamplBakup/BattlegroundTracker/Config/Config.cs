@@ -42,7 +42,7 @@ namespace BattlegroundTracker
         public double tavernUpPosLeft = 320;
 
         public double rerollPosTop = 20;
-        public double rerollPosLeft = 320;
+        public double rerollPosLeft = 600;
 
         public bool showTribeColors;
         public bool showTribeImages;
